@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f6">
+  <title>Husk</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Huskeliste</p>
+        <h1>Husk</h1>
+      </div>
+      <span id="connectionStatus" class="status-pill">Kobler til</span>
+    </header>
+
+    <section class="composer" aria-label="Ny oppgave">
+      <textarea id="taskInput" rows="3" autocomplete="off" placeholder="Hva vil du huske?"></textarea>
+      <div class="composer-actions">
+        <button id="micButton" class="icon-button mic-button" type="button" aria-label="Snakk">
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+            <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"></path>
+            <path d="M19 11a7 7 0 0 1-14 0"></path>
+            <path d="M12 18v3"></path>
+            <path d="M8 21h8"></path>
+          </svg>
+        </button>
+        <button id="addButton" class="primary-button" type="button">Legg til</button>
+      </div>
+      <p id="speechStatus" class="speech-status" role="status"></p>
+    </section>
+
+    <section class="list-section" aria-label="Oppgaver">
+      <div class="list-header">
+        <div>
+          <p class="eyebrow">I dag</p>
+          <h2>Oppgaver</h2>
+        </div>
+        <div class="filters" aria-label="Filter">
+          <button class="filter-button is-active" type="button" data-filter="active">Aktive</button>
+          <button class="filter-button" type="button" data-filter="all">Alle</button>
+          <button class="filter-button" type="button" data-filter="done">Ferdige</button>
+        </div>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+      <p id="emptyState" class="empty-state">Ingen oppgaver.</p>
+    </section>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

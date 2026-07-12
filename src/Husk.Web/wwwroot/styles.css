@@ -1,0 +1,306 @@
+:root {
+  color-scheme: light;
+  --background: #f4f7f6;
+  --surface: #ffffff;
+  --surface-strong: #fbfcfc;
+  --ink: #1f2724;
+  --muted: #65736f;
+  --line: #d8e0dd;
+  --accent: #1d766f;
+  --accent-strong: #155c56;
+  --danger: #b94735;
+  --shadow: 0 18px 40px rgba(35, 32, 24, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.app-shell {
+  width: min(820px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.topbar,
+.list-header,
+.composer-actions,
+.task-row,
+.filters {
+  display: flex;
+  align-items: center;
+}
+
+.topbar {
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 4.2rem;
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 1.45rem;
+}
+
+.status-pill {
+  min-width: 112px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.status-pill.is-online {
+  border-color: rgba(29, 118, 111, 0.28);
+  color: var(--accent-strong);
+}
+
+.status-pill.is-offline {
+  border-color: rgba(185, 71, 53, 0.32);
+  color: var(--danger);
+}
+
+.composer,
+.list-section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.composer {
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 104px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  outline: none;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(29, 118, 111, 0.16);
+}
+
+.composer-actions {
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.icon-button,
+.primary-button,
+.filter-button,
+.delete-button {
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.icon-button {
+  width: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-strong);
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+.icon-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.mic-button.is-listening {
+  background: var(--danger);
+  color: #fff;
+}
+
+.primary-button {
+  min-width: 112px;
+  padding: 0 18px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--accent-strong);
+}
+
+.speech-status {
+  min-height: 20px;
+  margin: 10px 2px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.list-section {
+  padding: 18px;
+}
+
+.list-header {
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.filters {
+  gap: 6px;
+}
+
+.filter-button {
+  padding: 0 12px;
+  background: transparent;
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.filter-button.is-active {
+  background: var(--ink);
+  color: #fff;
+}
+
+.task-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-row {
+  min-height: 58px;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 10px 10px 12px;
+  background: var(--surface-strong);
+}
+
+.task-row input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  accent-color: var(--accent);
+}
+
+.task-title {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.task-row.is-completed .task-title {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.delete-button {
+  width: 42px;
+  flex: 0 0 auto;
+  background: transparent;
+  border-color: transparent;
+  color: var(--danger);
+  font-size: 1.25rem;
+}
+
+.delete-button:hover {
+  border-color: rgba(185, 71, 53, 0.25);
+  background: rgba(185, 71, 53, 0.08);
+}
+
+.empty-state {
+  margin: 24px 0 10px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 20px, 820px);
+    padding-top: 18px;
+  }
+
+  .topbar,
+  .list-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .status-pill {
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filter-button {
+    flex: 1;
+    padding-inline: 8px;
+  }
+}

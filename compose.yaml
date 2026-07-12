@@ -1,0 +1,29 @@
+services:
+  husk-api:
+    build:
+      context: .
+      dockerfile: src/Husk.Api/Dockerfile
+    container_name: husk-api
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      HUSK_DATA_PATH: /data/husk/tasks.json
+    volumes:
+      - husk-data:/data/husk
+    restart: unless-stopped
+
+  husk-web:
+    build:
+      context: .
+      dockerfile: src/Husk.Web/Dockerfile
+    container_name: husk-web
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      HUSK_API_BASE_URL: http://husk-api:8080
+    ports:
+      - "${HUSK_WEB_PORT:-8088}:8080"
+    depends_on:
+      - husk-api
+    restart: unless-stopped
+
+volumes:
+  husk-data:

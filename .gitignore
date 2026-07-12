@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+.vscode/
+.idea/
+.DS_Store
+TestResults/
+artifacts/
+*.user
+*.suo
+*.swp
+src/Husk.Api/App_Data/
