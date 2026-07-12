@@ -61,6 +61,8 @@ ghcr.io/espenhal/husk-app-web:main
 ```
 
 Each image is also tagged with `sha-<commit-sha>` for exact rollbacks.
+The published images support `linux/amd64` and `linux/arm64`, so they run on
+both normal GitHub runners and Raspberry Pi.
 
 If the repository or packages are private, the Raspberry Pi must be logged in to
 GHCR before pulling. For the simplest homelab setup, make the two container
