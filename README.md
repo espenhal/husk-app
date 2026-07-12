@@ -50,6 +50,22 @@ http://localhost:8088
 
 Tasks are stored in the `husk-data` Docker volume.
 
+## Images
+
+GitHub Actions publishes images to GitHub Container Registry on every push to
+`main`:
+
+```text
+ghcr.io/espenhal/husk-app-api:main
+ghcr.io/espenhal/husk-app-web:main
+```
+
+Each image is also tagged with `sha-<commit-sha>` for exact rollbacks.
+
+If the repository or packages are private, the Raspberry Pi must be logged in to
+GHCR before pulling. For the simplest homelab setup, make the two container
+packages public after the first workflow run.
+
 ## Microphone Access
 
 The browser microphone requires a secure context. `localhost` works during local
